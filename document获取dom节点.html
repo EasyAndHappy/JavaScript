@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+
+<!-- 	<div id="div">
+		<div class="div1">
+			<p id="p">JavaScript</p>
+			<p>Java</p>
+		</div>
+		<div class="div1 div2">
+			<p>Python</p>
+			<p>Ruby</p>
+			<p>Swift</p>
+		</div>
+		<div class="div2">
+			<p>Scheme</p>
+			<p>Haskell</p>
+		</div>
+	</div> -->
+
+<!-- 	<div id="div">
+		<p id="js">JavaScript</p>
+		<p>Java</p>
+	</div> -->
+
+	<p id="js">JavaScript</p>
+	<div id="list">
+		<p id="java">Java</p>
+		<p id="python">Pthon</p>
+		<p id="scheme"></p>
+	</div>
+<body>
+	<script type="text/javascript">
+	//appendChild字节点添加到父节点的字节点上
+		var js=document.getElementById("js");
+			list=document.getElementById("list");
+			list.appendChild(js);
+			//createElement
+			p=document.createElement("p");
+			p.id="p";
+			p.innerText="new text";
+			list.appendChild(p);
+
+
+		// //选择JS;
+		// var js=document.getElementById("p");//
+		// //选择python Ruby Swift
+		// var arr=document.getElementsByClassName("div1")[1].children;
+		// // 选择Haskell
+		// var ha=document.getElementsByClassName("div2")[1].lastElementChild;
+
+		// //选择div1
+		// var div1=document.getElementById("div").firstElementChil
+			
+
+		// var js=document.getElementById("div").firstElementChild;
+		// var ja=document.getElementById("div").lastElementChild;
+		// ja.innerHTML="hello world";
+		// js.innerText="nihao";
+		// js.style.fontSize="25px";
+		// js.style.color="#ff00ff";
+		// ja.style.fontWeight="900";
+	</script>
+</body>
+</html>
