@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" id="random">
+	<input type="text" id="length">
+	<input type="button" value="获取随即字符" onclick="random_srt()">
+	<div></div>
+	<script type="text/javascript">
+
+		
+		function random_srt(length){
+			// a.prototype=call(this);
+			var alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";//定义字符串变量
+			alphabet+="abcdefghijklmnopqrstuvwxyz";
+			alphabet+="0123456789-_"; 
+			var str="";//定义空字符串,储存返回的字符;
+
+			for (var i=0;i<length;i++){
+				var ran=Math.floor(Math.random()*alphabet.length);
+				str+=alphabet.substring(ran,ran+1);
+			};
+			return str;
+		}
+		// alert(random_srt(12))
+
+		//倒计时
+		function leftDays(){
+			var today=new Date();
+			var endYear=new  Date(today.getFullYear(),11,31,23,59,59,999)//今年的最后时间
+			var msPerDay=24*60*60*1000;//每天的时间换算成毫秒;
+			var div=document.getElementById("random")
+			var lastYear=Math.round((endYear.getTime()-today.getTime())/msPerDay)
+			div.value=lastYear
+			setTimeout("leftDays()",86400)
+		};
+		 leftDays()
+
+		 //计算精确时间
+		var start=new Date();
+		var end=new Date();
+		var elspsed=end.getTime()-star.getTime();
+	</script>
+</body>
+</html>
