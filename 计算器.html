@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- <meta http-equiv="refresh" content="1"> -->
+	<style type="text/css">
+	table {
+		background:rgb(217,228,221);
+		border:1px inset orange;
+		border-radius:5px;
+	}
+
+	input {
+		width:35px;
+		height:30px;
+		background:-webkit-linear-gradient(rgb(214,245,248),rgb(215,226,239));
+		border-radius:3px;
+		border:1px inset rgb(217,228,221)
+		font-weight:bold;
+		text-align: center;
+	}
+	#col {
+		width:76px;
+		height:30;
+	}
+	#row {
+		height:68px;
+		width:35px;	
+	}
+	[type="text"]{
+		width:200px;
+		height:40px;
+		border-radius:4px;
+		font-size:16px;
+		font-weight:bold;
+		text-align:right;
+		padding-top:4px;
+		padding-bottom:2px;
+		border:1px outset rgb(217,228,221);
+		/*box-shadow:5px 5px 5px rgba(241,246,252,0.8) outset;*/
+		background:-webkit-linear-gradient(white,rgb(217,228,221),white)
+	}
+	#txt {
+		text-align:center;
+	}
+	input:hover{
+		background:-webkit-linear-gradient(rgb(255,246,236),rgb(255,209,111),rgb(255,255,216));
+		border:1px solid rgb(255,219,0);
+	}
+	td {
+		padding:2px;
+	}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td colspan="5" id="txt"><input type="text" value="0" id="txtnum"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="MC"></td>
+			<td><input type="button" value="MR"></td>
+			<td><input type="button" value="MS"></td>
+			<td><input type="button" value="M+"></td>
+			<td><input type="button" value="M-"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="←"></td>
+			<td><input type="button" value="CE"></td>
+			<td><input type="button" value="C"></td>
+			<td><input type="button" value="±"></td>
+			<td><input type="button" value="√"></td>
+		</tr>
+		<tr class="num">
+			<td><input type="button" value="7" onclick="num(7)"></td>
+			<td><input type="button" value="8" onclick="num(8)"></td>
+			<td><input type="button" value="9" onclick="num(9)"></td>
+			<td><input type="button" value="/" onclick="computer('/')"></td>
+			<td><input type="button" value="%" onclick="computer('%')"></td>
+		</tr>
+		<tr class="num">
+			<td><input type="button" value="4" onclick="num(4)"></td>
+			<td><input type="button" value="5" onclick="num(5)"></td>
+			<td><input type="button" value="6" onclick="num(6)"></td>
+			<td><input type="button" value="*" onclick="computer('*')"></td>
+			<td><input type="button" value="1/x"></td>
+		</tr>
+		<tr class="num">
+			<td><input type="button" value="1" onclick="num(1)"></td>
+			<td><input type="button" value="2" onclick="num(2)"></td>
+			<td><input type="button" value="3" onclick="num(3)"></td>
+			<td><input type="button" value="-" onclick="computer('-')"></td>
+			<td rowspan="2"><input type="button" value="=" id="row" onclick="computer('=')"></td>
+
+		</tr>
+		<tr class="num">
+			<td colspan="2"><input type="button" value="0" id="col" onclick="num(0)"></td>
+			<td><input type="button" value="." onclick="decimal()"></td>
+			<td><input type="button" value="+" onclick="computer('+')"></td>
+		</tr>
+	</table>
+	<script>
+
+		var boo=false;//定义未按下运算符键时为false
+		var result=0;//定义一个空变量储存运算结果
+		var ope;//定义空变量储存运算符
+		function $(x){
+			return document.getElementById(x);//获取需要的元素函数
+		};
+
+		//数字键输入
+		function num(Num){
+			var num=$("txtnum");
+			if (boo){//按下运算符
+				num.value=Num;
+				boo=false// 返回到按键未按下状态
+			}else{
+				if (num.value=="0"){
+					num.value=Num;			
+				}else {
+					num.value+=Num;
+				};
+			}
+		};
+		//小数点
+		function decimal(){
+			var decimal=$("txtnum");
+			if (decimal.value=="0"){
+				decimal.value="0.";
+			}else {
+				if (decimal.value.indexOf()=-1)//如果小数出现就不在出现，index()方法返回首个字符出现的位置，-1表示不存在
+				decimal.value+="."
+			}
+		};
+		//运算符计算结果
+		function computer(op){
+			var operator=$("txtnum").value;
+			if (operator==""){operator="0"};
+			boo=true;//按下运算符的建;
+			switch (op){
+				case '+':
+					result+=parseFloat(operator); break;
+			}
+
+		}
+	</script>
+</body>
+</html>
