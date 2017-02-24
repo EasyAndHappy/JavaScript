@@ -65,10 +65,10 @@
 			<td><input type="button" value="M-"></td>
 		</tr>
 		<tr>
-			<td><input type="button" value="←"></td>
-			<td><input type="button" value="CE"></td>
-			<td><input type="button" value="C"></td>
-			<td><input type="button" value="±"></td>
+			<td><input type="button" value="←" onclick="backSpace()"></td>
+			<td><input type="button" value="CE" onclick="C()"></td>
+			<td><input type="button" value="C" onclick="C()"></td>
+			<td><input type="button" value="±" onclick="plusMinus()"></td>
 			<td><input type="button" value="√"></td>
 		</tr>
 		<tr class="num">
@@ -83,7 +83,7 @@
 			<td><input type="button" value="5" onclick="num(5)"></td>
 			<td><input type="button" value="6" onclick="num(6)"></td>
 			<td><input type="button" value="*" onclick="computer('*')"></td>
-			<td><input type="button" value="1/x"></td>
+			<td><input type="button" value="1/x" onclick="computer('1/x')"></td>
 		</tr>
 		<tr class="num">
 			<td><input type="button" value="1" onclick="num(1)"></td>
@@ -101,48 +101,80 @@
 	</table>
 	<script>
 
-		var boo=false;//定义未按下运算符键时为false
-		var result=0;//定义一个空变量储存运算结果
-		var ope;//定义空变量储存运算符
-		function $(x){
-			return document.getElementById(x);//获取需要的元素函数
-		};
+var boo=false;//定义变量，表示未按下运算符的状态 
+	var result=0;//用来保存运算结果
+	var a;//保存传入的运算符
+	  //获取元素对话框
+	  function $(){
+	  	return document.getElementById("txtnum");
+	  };
 
-		//数字键输入
-		function num(Num){
-			var num=$("txtnum");
-			if (boo){//按下运算符
-				num.value=Num;
-				boo=false// 返回到按键未按下状态
-			}else{
-				if (num.value=="0"){
-					num.value=Num;			
-				}else {
-					num.value+=Num;
-				};
-			}
-		};
-		//小数点
-		function decimal(){
-			var decimal=$("txtnum");
-			if (decimal.value=="0"){
-				decimal.value="0.";
-			}else {
-				if (decimal.value.indexOf()=-1)//如果小数出现就不在出现，index()方法返回首个字符出现的位置，-1表示不存在
-				decimal.value+="."
-			}
-		};
-		//运算符计算结果
-		function computer(op){
-			var operator=$("txtnum").value;
-			if (operator==""){operator="0"};
-			boo=true;//按下运算符的建;
-			switch (op){
-				case '+':
-					result+=parseFloat(operator); break;
-			}
-
-		}
+	  //给对话框赋数值
+	  function num(Num){
+	  	var txt=$("txtnum");
+	  	if (boo){//按下状态
+	  		txt.value=Num;
+	  		boo=false
+	  	}else{
+		  	if(txt.value=="0"){
+		  		txt.value=Num;//txt.value等于0，就让txt的等于当前输入的值
+		  	}else{
+		  		txt.value+=Num;
+		  	};
+		 };
+	  };
+	  //小数点赋值
+	  function decimal(){
+	  	var dec=$("txtnum");
+	  	if (dec.value="0"){//按下状态
+	  		dec.value="0."
+	  	}else{
+	  		if (dec.value.indexOf('.')==-1){//如果不存在.符合，运行下面代码，如果存在不运行 ，indexOf()返回字符在字符串首个字符的位置，不存在返回-1
+	  				dec.value+="."
+	  		};
+	  		boo=false;//返回未按下状态
+	  	};
+	  };
+	  //添加运算符和运算结果
+	  function computer(op){
+	  	var com=$("txtnum").value;
+	  	if (com==""){com="0"}//传入的运算符为空时，返回值为0
+	  	boo=true;//表示按下运算键
+	  	switch (a){
+	  		case '+':result+=parseFloat(com);break;
+	  		case '-':result-=parseFloat(com);break;
+	  		case '*':result*=parseFloat(com);break;
+	  		case '/':result/=parseFloat(com);break;
+	  		case '%':result%=parseFloat(com);break;
+	  		case '=':result=parseFloat(com);break;
+	  		case '1/x':result=parseFloat(1/com);break;
+	  			default:result=parseFloat(com)
+	  	};
+	  	$("txtunm").value=result;
+	  	a=op//因为+-*/是二元元算符 所以需要在元素符保存在a中，便于使用
+	  };
+	  //正负号
+	  function plusMinus(){
+	  	var plusMinus=$("txtnum");
+	  	if (plusMinus.value=="0"){
+	  		plusMinus.value="0";
+	  	}else{
+	  		plusMinus.value*="-1";
+	  	};
+	  };
+	  //C,CE
+	  function C() {
+	  	var c=$("txtnum");
+	  	c.value="0";
+	  };
+	  //退格
+	  function backSpace(){
+	  	var backSpace=$('txtnum');
+	  	backSpace.value=backSpace.value.substring(0,backSpace.value.length-1);
+	  	if (backSpace.value==""){ //substring() 方法用于提取字符串中介于两个指定下标之间的字符。
+	  		backSpace.value="0";
+	  	};
+	  };
 	</script>
 </body>
 </html>
