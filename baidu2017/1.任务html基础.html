@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="refresh" content="60">
+	<style type="text/css">
+		body {
+			font:"宋体";
+		}
+		details summary{
+			font-weight:bold;
+		}
+		h4 {
+			font-weight:100;
+		}
+	</style>
+</head>
+<body>
+	<details open>
+	<summary>1.网页的基本框架</summary>
+	<pre>
+		<code>
+		&lt!DOTYPE HTML&gt&ltspan></span>
+		&lthtml&gt
+		&lthead&gt
+		   &ltmeta http-equiv="Content-Type" content="text/html;charset-utf-8"&gt
+		&lt/head&gt
+		&ltbody&gt
+		  &lth1&gt....&lth1&gt
+		  &ltp&gt....&ltp&gt
+		&lt/body&gt
+		&lt/html&gt
+		</code>
+	</pre>
+	<P>所有网页都是有html，head，body组成，body之前存放可以显示在页面内容的标签</P>
+	</details>
+	<details open>
+	<summary>2.HTML的基本元素</summary>
+		<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsphtml标签分为块级元素和内联元素</span>
+	<p>块元素：p,div,h1,ul,table input等都是块级标签，他们通常都会沾满一整行</p>
+	<p>内联元素：b,td a img strong span等是内联元素，它们不会沾满一整行，显示不会从新行开始</p>
+<h4>块元素的简单介绍</h4>
+	<ol>
+		<li>p元素一般作为段落使用。</li>
+		<li>div元素在html用途比较广泛，主要里div进行网页的布局，可以把不同的元素分成一块一块，利于网页布局</li>
+		<li>h1--h6元素定义标题，从1--6不同大小</li>
+		<li>ul无序列表，ol有序列表</li>
+		<li>table表格元素，表格是由table tr行 td列构成，例如：
+<pre>
+&lttable&gt 
+   &lttr&gt
+      &lttd&gt
+      &lttd&gt
+   &lt/tr&gt
+&lt/table&gt
+</pre>
+		这是一个一行一列的表格样式</li>
+	</ol>
+	<li>input元素是一个控件表，设置不同type可以有不同的效果，常用的type类型有text，button number submit reset等,支持html5的很多属性</li>
+<h4>内联元素的介绍</h4>
+	<ol>
+		<li>a元素是超文本连接 &lta href=""&gt的结构href存放url地址</li>
+		<li>img元素引入图片 &ltimg src="&gt图片地址" alt属性在图片加载失败的情况下给出提示说明</li>
+		<li>strong b 定义文本加粗</li>
+		<li>span元素组合文档中的行内元素，在布局设计中非常有用</li>
+	</ol>
+</details>
+<details open>
+<summary>3.HTML5的认识</summary>
+	<p>html5布局的语义元素，极大的方便的布局结构，例如</p>
+	<pre>
+		&ltheader&gt页面的头部&lt/header&gt
+		&ltarticle&gt
+			&ltaside&gtarticle页面的主体||页面的工具栏，侧栏&lt/aside&gt
+			&ltsection&gt页面的内容区&lt/section&gt
+		&lt/article&gt
+		&ltfooter&gt页面的底部&lt/footer&gt
+	</pre>
+<blockquote>
+html
+head
+body
+header (包含网站的标题，或者logo，SLOGEN之类的)
+nav （导航栏）
+main (文档的主要内容，不包含侧边栏、导航栏、版权信息，网站logo等附属信息)
+article （文档中可以脱离其他部分，独立出来而又完整，甚至可以复用的一部分，通常有自己的标题，当article内嵌article时，里外层的内容应该是相关的，比如一篇微博和它的评论）
+section (文档中一段主题性内容，通常也有自己的标题，跟article的区别在于他是整体的一部分或者说文章的一节)
+aside （侧边栏或者嵌入内容，通常认为是独立拆分出来而不受整体影响的一部分，作为主要内容的附属信息，如索引，词条列表，或者页面及站点的附属信息，如广告，作者资料介绍等）
+footer （页脚，通常包含作者、版权信息或者相关链接等）
+</blockquote>
+<p>table元素的语义化结构元素</p>
+<ul>
+<li>caption 表格的标题</li>
+<li>thead 适合放表格的表头行</li>
+<li>tbody 表格的主体部分</li>
+<li>tfoot 表格的脚注部分</li>
+</ul>
+<p>form表单</p>
+<p>label标签，为input元素定义标注，改进了表单控件的可用性，当你点击到label标签时，会自动聚焦到对应控件上，label标签一般有两种用法</p>
+
+<pre>
+1.label的for属性与控件的id对应，比如
+ &ltlabel for="username"&gt
+  	请输入用户名:
+  	&ltinput type="text" id="username" name="username"&gt
+ &ltlabel&gt
+2.label内嵌控件，比如
+  &ltlabel请输入用户名input type="text" id="username" name="username"/label&gt
+<pre>
+<footer>
+	待补充
+</footer>
+</body>
+</html>
