@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="refresh" content="3">
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			font-family:"宋体";
+
+		}
+		#box {
+			margin:20px;
+			border:1px solid gray;
+			background:gray;
+			overflow:hidden;
+		}
+
+		#leftBox{
+			margin:10px;
+			border:1px solid red;
+			width:200px;
+			font-size:10px;
+			height:auto;
+			float:left;
+		}
+		#leftBox img{			
+			margin:10px;
+			display:inline;
+			width:100px;
+			height:150px;
+		}
+		#leftBox p{
+			float:right;
+			width:80px;
+			line-height:20px;
+			margin-top:10px;
+
+		}
+
+		#rightBox{
+			float:right;
+			width:150px;
+			border:1px solid red;
+			margin:10px;
+
+		}
+		#rightBox img{
+			vertical-align:middle;
+			margin:20px;
+		}
+
+		#middleBox{
+			margin:10px 200px 0 240px;/*自适应中间div会随浏览器变化而变化*/
+			height:auto;
+			background:white;
+			border:1px solid;
+			height:500px;
+			width:770px;
+		}
+
+		#middleBox{
+			padding:20px;
+			font-size:14px;
+		}
+		#middleBox ul{
+			margin-left:30px;
+		}
+
+		#middleBox p{
+			font-weight:bold;
+		}
+/*三栏式浮动布局，中间div必须放在最后*/
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="leftBox">
+			<div>
+				<img src="eg_bulbon.gif">
+				<p>在左边晃荡的文字</p>
+			</div>	
+		</div>	
+
+		<div id="rightBox">
+			<img src="eg_bulbon.gif">
+			<img src="eg_bulbon.gif">
+			<img src="eg_bulbon.gif">
+			<img src="eg_bulbon.gif">
+		</div>
+		<div id="middleBox">
+		<p>浮动与清除</p>
+		<span>浮动元素脱离了常规文档流之后，原来紧跟其后的元素就会在空间允许的情况下，向上提升到与浮动元素平起平坐</span>
+			<ul>float
+				<li>CSS3 Multi-column Layout Module规定了如何用CSS定义多栏布局。</li>
+				<li>在浮动一张图片或者其他元素是，是在要求浏览器把它往上方推，直到它碰到父元素的内边界</li>   
+				<li>浮动非图片元素时，要给它设定宽度。</li>
+				<li>浮动元素位于“文档流外部”，因而它已经不被包含在标记中的父元素之内。</li>    
+			</ul>
+			<ul>围住浮动元素的三种方法
+
+   		<li>为父元素添加 overflow:hidden</li> 
+       <ul>overflow: hidden;
+           <li>防止包含元素被超大内容撑大</li> 
+           <li>迫使父元素包含其浮动的子元素</li>
+        </ul> 
+    <li>同时浮动父元素</li>
+    	<ul>
+    		<li>被清除(clean)的元素不会被提升到浮动元素的旁边</li>
+    	</ul>
+        
+    <li>添加非浮动的清除元素</li>
+        <ul>
+        <li>给父元素的最后添加一个非浮动的子元素，然后清除该子元素。由于包含元素一定会包围非浮动的子元素，而且清除会让这个子元素位于（清除一侧）浮动元素的下方，因此包含元素一定会包含这个子元素——以及前面的浮动元素。</li>
+			<pre>
+			/*clearfix规则：*/
+			.clearfix:after {
+			    content: '.';
+			    display: block;
+			    height: 0;
+			    visibility: hidden;
+			    clear: both;
+			}</pre>
+		<em>/*clearfix添加了一个清除的包含句点作为非浮动元素（要有内容，句号是最小的内容）*/</em>
+		</ul>
+    <li>注意：</li>
+        <ul>
+        <li>不能在下拉菜单的顶级元素上应用overflow:hidden，否则作为子元素的下拉菜单不会显示。</li>
+        <li>不能对已经靠自动外边距居中的元素使用“浮动父元素”技术，否则它不会居中。</li>
+        <li>没有父元素时： clearfix “清除子元素” </li>
+		</ul>
+</ul>
+
+		</div>
+	</div>
+</body>
+</html>
