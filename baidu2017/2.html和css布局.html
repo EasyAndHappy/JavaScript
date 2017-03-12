@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="refresh" content="5">
+	<style type="text/css">
+		*{margin:0; padding:0; font-family:"微软雅黑";}
+		body{background:rgb(222,222,222);}
+		header,article,footer{
+			border:1px solid rgb(205,205,205);
+			margin:20px;
+			padding:20px;
+			background:rgb(255,255,255);
+			width:1200px;
+		}
+		h1{
+			line-height:40px;
+			padding-top:20px;
+			font-size:20px;
+		}
+		h2{
+			line-height:40px;
+			font-size:16px;
+			opacity:0.5;
+		}
+		span{font-size:8px;color:gray;}
+
+		p.indent{
+			line-height:26px;
+			text-indent:2em;
+		}
+		img {margin:10px;}
+		p:last-child{
+			margin-bottom:20px;
+		}
+/*以上header的样式*/
+		
+		section{float:right; width:900px;
+				border:1px solid yellow;
+		}
+		aside{
+			padding:10px;
+			border:1px solid red;
+			float:left;
+		}
+		article:after{
+			content:"";
+			display:block;
+			clear:right; /* 清除浮动最优方法，为了防止清楚浮动后块级随浏览器大小移动，建议在父级在width*/
+		}
+		ol {
+			background:red;
+			margin-left:2.5em;
+		}
+		div {
+			border:1px solid gray;
+			margin:10px;
+			float:left;
+			text-align:center;
+		}
+		div img {
+			vertical-align:bottom;/*控制图片位置的方法*/
+			left:20px;
+			top:20px;
+			display:block;
+			padding:10px;
+		}
+
+		aside h4{
+			text-align:center;
+		}
+		aside table{
+			margin:10px;
+			font-size:14px;
+			border:1px;
+		}
+		aside table tr input{
+			margin:5px 0;
+
+		}
+		aside .details{
+			font-size:10px;
+			opacity:0.5;
+		}
+		aside table tr td:first-child{
+			text-align:right;
+			padding:2px;
+		}
+		aside table tr td textarea{
+			height:100px;
+			resize:none;
+		}
+/*article内的样式以上*/
+
+		footer ul{
+			margin-left:30px;
+			margin-top:20px;
+		}
+		footer ul li{
+			padding:10px;
+		}
+
+	footer table {
+		border:1px solid gray;
+		border-collapse:collapse;
+		width:1197px;
+		font-size:14px;
+		line-height:14px;
+	}
+	footer table td,th{
+		border:1px solid gray;
+		height:30px;
+	}
+	footer table th{
+		color:white;
+		background:rgb(51,51,51);
+	}
+	footer table tr:last-child{
+		background:gray;
+		font-weight:bold;
+	}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>一级标题</h1>
+		<h2>二级标题</h2>
+		<span>2017年3月12日</span>
+		<p class="indent">这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，<a href="#">这是一个长段落</a>这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，这是一个长段落，</p><img src="eg_bulbon.gif">
+		<p class="indent">长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二<a href="www.baidu.com">链接地址</a>长段落二长段落二长段落二长段落二长段落二长段落二长段落二长段落二</p>
+	</header>
+	<article>
+		<section>
+			<h1>另一篇文章的一级标题</h1>
+			<h2>文章的二级标题</h2>
+			<span>发布时间：2017.3.12</span>
+			<p class="indent">段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，段落很长，</p>
+			<p class="indent">第二段段落很长，段落很长，段落很长，段落很长，段落很长，第二段段落很长第二段段落很长第二段段落很长第二段段落很长第二段段落很长第二段段落很长第二段段落很长第二段段落很长第二段段落很长第二段段落很长第二段段落很长第二段段落很长第二段段落很长</p>
+			<img src="eg_bulbon.gif">
+			<ol>
+				<li>有序列表</li>
+				<li>有序列表</li>
+				<li>有序列表</li>
+				<li>有序列表</li>
+			</ol>
+			<div>好看的图片<img src="eg_bulbon.gif"></div>
+			<div>好看的图片<img src="eg_bulbon.gif"></div>
+			<div>好看的图片<img src="eg_bulbon.gif"></div>
+			<div>好看的图片<img src="eg_bulbon.gif"></div>
+			<div>好看的图片<img src="eg_bulbon.gif"></div>
+			<div>好看的图片<img src="eg_bulbon.gif"></div>
+			<div>好看的图片<img src="eg_bulbon.gif"></div>
+		</section>
+		<aside>
+			<h4>侧栏的标题</h4>
+			<table>
+				<tr>
+					<td>邮箱</td>
+					<td>
+						<input type="text" name="mail" placeholder="请输入文本框">
+					</td>
+				<tr>
+				<tr>
+					<td></td>
+					<td class="details">按格式输入密码</td>
+				</tr>
+				<tr>
+					<td>密码</td>
+					<td><input type="password" name="pass"></td>
+				</tr>	
+				<tr>
+					<td>重复密码</td>
+					<td><input type="password" name="pass"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="details">密码为6-16英文字母数字</td>
+				</tr>
+				<tr>
+					<td>性别</td>
+					<td>
+						<input type="radio" name="sex" checked>男
+						<input type="radio" name="sex">女
+					</td>
+				</tr>
+				<tr>
+					<td>城市</td>
+					<td>
+						<select>
+							<option>北京</option>
+							<option>上海</option>
+							<option>天津</option>
+							<option>重庆</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>爱好</td>
+					<td>
+						<input type="checkbox" name="hobby">运动
+						<input type="checkbox" name="hobby">艺术
+						<input type="checkbox" name="hobby">科学					</td>
+				</tr>
+				<tr>
+					<td>个人描述</td>
+					<td>
+						<textarea placeholder="这是一个自己描述的空间"></textarea>
+					</td>
+				</tr>
+			</table>
+			<div></div>
+		</aside>
+	</article>
+	<footer>
+		<h1>最后的一级标题</h1>
+		<h2>最后二级标题</h2>
+		<span>2017.3.12</span>
+		<ul>
+			<li>排名1</li>
+			<li>排名2</li>
+			<li>排名3</li>
+		</ul>
+		<table>
+			<caption>表格的标题</caption>
+			<tr>
+				<th>表头</th>
+				<th>表头</th>
+				<th>表头</th>
+			</tr>
+			<tr>
+				<td>表格内容</td>
+				<td>表格内容</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td>表格内容</td>
+				<td>表格内容</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td>表格内容</td>
+				<td>表格内容</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td>合计</td>
+				<td colspan="2">100</td>
+			</tr>
+		</table>	
+	</footer>
+
+</body>
+</html>
