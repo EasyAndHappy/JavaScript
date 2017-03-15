@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>	
+	<label>请输入北京今天空气质量:<input type="text" id="txt"></label>
+	<input type="button" value="确认填写" onclick="show()">
+	<div>
+		您输入的值是:<span id="sp"></span>
+	</div>
+	<script type="text/javascript">
+	function show(){
+		var text=document.getElementById("txt").value
+		var sp=document.getElementById("sp");
+		sp.innerHTML=text;//不返回HTML标签，只显示html格式的文本
+		// sp.innerText=text//返回带有HTML标签的所有文本 
+		// sp.outerHTML=text//不返回HTML标签，只显示html格式的文本
+		// sp.outerText=text//返回HTML标签 的所有文本
+		// sp.value=text
+	}
+
+	</script>
+</body>
+</html>
