@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task-2</title>
+</head>
+<body>
+	<h3>污染城市列表</h3>
+	<ul id="api-list">
+		
+	</ul>
+	<script type="text/javascript">
+		var apiData = [
+			  ["北京", 90],
+			  ["上海", 50],
+			  ["福州", 10],
+			  ["广州", 50],
+			  ["成都", 90],
+			  ["西安", 100]
+			];
+		(function (){
+		for (var i=0;i<apiData.length;i++){
+			var ul=document.getElementById("api-list");
+			if (apiData[i][1]>60){
+				var li=document.createElement("li")
+				li.innerHTML=apiData[i][0]+"的空气质量是"+apiData[i][1]
+				ul.appendChild(li)
+			}
+		}
+		})()
+	</script>
+</body>
+</html>
