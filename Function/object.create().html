@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>Object.create()方法传入一个原型对象，并基于该原型创建一个新对象 </p>
+	<script type="text/javascript">
+		//prototype
+		var student={
+			name:"xiaoming",
+			age:15,
+			say:function (){
+				alert(this.name+"popole");
+			}
+		};
+		//创建新对象
+		function createStudent(name){
+			var s=Object.create(student);//基于student的原型创建一个新对象
+			//初始化 新 对象 
+			s.name=name;
+			return s;
+		};
+		var zhangsan=createStudent("zhangsan")
+		zhangsan.say()//
+		//zhangsan的内部原型继承student
+		alert(zhangsan.__proto__===student)//true
+
+
+		var person={
+			name:"xiaohong",
+			age:12
+		}
+
+	function outsize() {
+		var x = 0;
+		function inside (x) {
+			return x ; //当同一个闭包作用域下两个参数或者变量同名时，就会产生命名冲突。更近的作用域有更高的优先权，所以最近的优先级最高，最远的优先级最低
+		}
+		return inside;
+ 	}
+ 	// alert(outsize()(10))//10
+
+
+ 	//闭包
+ 	var pet = function (name) { //外部函数定义了一个变量"name"
+ 		var getName = function () {
+ 			 //内部函数可以访问 外部函数定义的"name"
+ 			return name+"是条狗";
+ 		}
+ 		  //返回这个内部函数，从而将其暴露在外部函数作用域
+ 		return getName;
+ 	};
+ 	myPet = pet("Vivie");
+ 	alert (myPet())
+
+
+ 	var createPet = function (name) {
+ 		var sex;
+ 		return {
+ 			setName: function(newName) {
+ 				name = newName;
+ 			},
+ 			getName: function () {
+ 				return name;
+ 			},
+ 			getSex: function () {
+ 				return sex;
+ 			},
+
+ 			setSex: function (newSex) {
+ 				if (typeof newSex == "string" && (newSex.toLowerCase() == "male" || newSex.toLowerCase() == "female")){
+ 					sex = newSex;
+ 				}
+ 			}
+ 		}
+ 	}
+
+ 	var pet = createPet("Vivie")//返回出函数对象
+ 	// alert(pet.getName())//Vivie
+
+ 	pet.setName("Oliver")//赋值新的newName
+ 	pet.setSex("female");
+ 	// alert(pet.getName())
+ 	// alert(pet.getSex())
+
+ 	function myConcat (separator) {
+ 		var result = "";
+ 		for (var i = 0; i < arguments.length; i++) {
+ 			result += arguments[i] + separator;
+ 		}
+ 		return result;
+ 	}
+
+ 	alert(typeof myConcat("red","bule","yellow"))
+	</script>
+</body>
+</html>

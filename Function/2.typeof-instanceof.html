@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	 <script type="text/javascript">
+	 	// typeof 返回一个变量的基本类型，,boolean,string,object,function,undefined;
+		//number
+	 	alert(typeof 1)//number
+	 	alert(typeof "abc")//string;
+	 	alert(typeof true)//boolean;
+	 	alert(typeof m)//undefined;
+
+	 	// 如果要判断一个变量是否存在，可以使用typeof:(不能使用if（m）m未声明)
+	 	if (typeof m !== "undefined") {
+	 		alert('m变量不存在')
+	 	}else {
+	 		alert ("变量m存在")
+	 	}
+
+	 	//instanceof只能用来判断对象和函数,不能用来判断字符串和数字
+	 	//instanceof返回一个布尔值 ;
+	 	var a = {};
+	 	alert (a instanceof Object)//true;
+	 	var b = [];
+	 	alert(b instanceof Array) //true;
+
+	 	var b = "123";
+	 	alert(b instanceof String) //false;
+	 	alert(typeof b) //String;
+
+	 	var c =new String("123");
+	 	alert(c instanceof String) //true;对象同理
+	 	alert(typeof c)//object;
+
+
+	 	//注 instanceof 可以判断数组 但是这个方法不适用于来判断数组，因为不管是数组还是对象，都会返回object
+
+	 	// constructor属性
+
+	 	var arr = [1, 2, 3];
+	 	/*arr.prototype.constructor = Array;  //这一句是系统默认加上的*/
+
+	 	alert(arr.constructor === Array)//true;
+	 	alert(arr instanceof Array) //ture
+
+	 </script>
+</body>
+</html>
