@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>	
+<!-- 	<div>
+		<p>p1</p>
+		<p>p2</p>
+		<p>p3</p>
+	</div>
+	<script type="text/javascript">
+		var d=document.getElementsByTagName("div")[0];
+		// alert(d.parentNode.nodeName)//parentNode返回父元素
+		// alert(d.children[0].nodeName)//childrenNode返回子元素
+
+		// var p=document.getElementsByTagName("p")
+		// alert(p[1].previousSibling.innerHTML)//previousSibling获取前一个节点，空格也算，返回undefined
+		// alert(p[1].nextSibling)//nextSibing下一个节点
+
+		// alert(d.firstChild.nodeName)//第一个字节点
+		// alert(d.lastChild.nodeName)//最后一个节点
+		// alert(d.childNodes.length)//文本，换行 空格 元素都会当作节点处理
+
+		alert(d.children.length)//不包含文本节点
+	</script> -->
+
+<!-- 		<input type="button" name="" value="createElement()创建元素节点" onclick="add()">
+		<input type="button" name="" value="createElement()创建文本节点" onclick="addText()">
+		<input type="button" name="" value="createAttribute()创建属性节点" onclick="addAttr()">
+		<script type="text/javascript">
+			function add(){
+				var p=document.createElement('hr');
+				// p.innerHTML="createElement()创建一个新的元素节点通过appendChild加入到另一个元素节点中 "
+				document.body.appendChild(p);
+			}
+
+			function addText(){
+				var txt=document.createTextNode("createTextNode创建一个内容节点text")
+				var p=document.createElement("p")
+				p.appendChild(txt);
+				document.body.appendChild(p);
+			};
+			function addAttr(){
+				var a=document.createElement("a");
+				var txt=document.createTextNode("摆渡一下也不一定知道");
+				// var href=document.createAttribute("href")
+				// href.nodeValue="http://www.baidu.com";
+				// a.setAttributeNode(href);
+
+				a.setAttribute("href","http://www.baidu.com")//简单的写法 注意
+				
+				a.appendChild(txt);
+				document.body.appendChild(a)
+			}
+		</script> -->
+		<p>动态表格</p>
+		<div>
+			
+		</div>
+		<script type="text/javascript">
+			// var row0=["id","名称","血量","血量"];
+			// var row1=["1","gareen","340","58"];
+			// var row2=["2","teemo","320","38"];
+			// var row3=["3","anine","380","48"];
+			// var row4=["4","deadbrother","400","60"];
+			// var rows=["row0","row1","row2","row3","row4"] 用new Array创建数组
+ var row0= new Array("id","名称","血量","伤害");
+ var row1= new Array("1","gareen","340","58");
+ var row2= new Array("2","teemo","320","76");
+ var row3= new Array("3","annie","380","38");
+ var row4= new Array("4","deadbrother","400","90");
+ var rows=new Array(row0,row1,row2,row3,row4);
+			function createTd(text){
+				var td=document.createElement("td");
+				var txt=document.createTextNode(text);
+				td.appendChild(txt);
+				return td;
+			};
+			function createTr(texts){
+				var tr=document.createElement("tr");
+				for (var i=0;i<texts.length;i++){
+					var td=createTd(texts[i]);
+					tr.appendChild(td);
+				}
+				return tr;
+			}
+			function createTable(rows){
+				var table=document.createElement("table");
+				for (var i=0;i<rows.length;i++){
+					var tr=createTr(rows[i]);
+					table.appendChild(tr);
+				}
+				return table;
+			}
+			var div=document.getElementsByTagName("div")[0];
+			var table=createTable(rows);
+			div.appendChild(table)
+		</script>	
+</body>
+</html>

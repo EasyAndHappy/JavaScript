@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<!-- 	<p>Element.outerHTML属性返回一个字符串，内容为指定元素节点的所有HTML代码，包括它自身和包含的所有子元素。</p>
+	<div id="d"><div id="p">hello world</div></div>
+	<script type="text/javascript">
+		var d=document.getElementById('d')
+		// alert(d.outerHTML)
+		var p=document.getElementById('p');
+		var e=d.firstChild.nodeName;
+		alert(e);
+		alert(d.nodeName)
+
+		e.outerHTML="<p>hello world</p>";
+		var e1=d.firstChild.nodeName;
+		 alert(e1)
+		 alert(d.nodeName)
+	</script> -->
+<!-- 	<p>Element.className，属性用来读写当前元素节点的class属性。它的值是一个字符串，每个class之间用空格分割。
+	Element.classList属性则返回一个类似数组的对象，当前元素节点的每个class就是这个对象的一个成员</p>
+	<div class="one two three" id="myDiv"></div>
+	<div id="rules" style="border:1px solid black;width:200px;height:100px;overflow:scroll;">如果内容正好适合它的容器，没有溢出，那么Element.scrollHeight和Element.clientHeight是相等的，scrollWidth属性与clientWidth属性是相等的。如果存在溢出，那么scrollHeight属性大于clientHeight属性，scrollWidth属性大于clientWidth属性</div>
+	<script type="text/javascript">
+		function write(x){
+			return document.write(x);
+		}
+		var cn=document.getElementById("myDiv").className;
+		write(cn)
+		var cl=document.getElementById('myDiv').classList;
+		write(cl);
+		alert(cl.length)//3 
+		alert(document.documentElement.scrollHeight)
+		//网页元素的总高度
+		alert(document.documentElement.scrollWidth)
+		//总宽度
+
+		var rules=document.getElementById('rules');
+		rules.onscroll=checking;
+		function checking(){
+			if (this.scrolltHeight-this.scrollTop===this.clineHeight){
+				alert("owari")
+			}else{
+				console.log("madamada")
+			}
+		}
+	</script> -->
+
+<!-- 	<p>Element.offsetHeight属性返回元素的垂直高度</p>
+	<p>Element.offsetWidth属性返回水平宽度。</p>
+	<span>offsetHeight可以理解成元素左下角距离左上角的位移，offsetWidth是元素右上角距离左上角的位移。它们的单位为像素，都是只读</span>
+
+	<p>Element.offsetLeft</p>
+	<script type="text/javascript">
+		// var h=document.documentElement.offsetHeight;
+		// var H=document.body.offsetHeight;
+		// alert(h);	
+		// alert(H);
+		// var w=document.documentElement.offsetWidth;
+		// var W=document.body.offsetWidth;
+		// alert(w); alert(W)
+
+		//网页总高度
+		var h1=document.documentElement.offsetHeight;
+		var h2=document.documentElement.scrollHeight;//从html开始
+			// alert(h1); alert(h2)
+		var h3=document.body.offsetHeight;//从body开始
+		var h4=document.body.scrollWidth
+			// alert(h3);alert(h4)
+
+		//网页的总宽度
+		var w1=document.documentElement.offsetWidth;
+		var w2=document.documentElement.scrollWidth;
+		// alert(w1);alert(w2);
+		var w3=document.body.offsetWidth;
+		var w4=document.body.scrollWidth;
+		// alert(w3);alert(w4)
+
+		//视窗宽度
+
+		var hh2=document.documentElement.clientHeight;//不包括滚动条
+		alert(hh1);alert(hh2);
+		var ww1=window.innerWidth;//包含滚动条
+		var ww2=document.documentElement.clientWidth;//不包括滚动条
+		alert(ww1);alert(ww2);
+	</script> -->
+
+<!-- 	<p>节点属性:</p>
+		<p>Element.children,包括当前元素节点的所有子元素。它是一个类似数组的动态对象</p>
+		<p>Element.childElementCount属性返回当前元素节点包含的子HTML元素节点的个数，与Element.children.length的值相同。注意，该属性只计算HTML元素类型的子节点</p>
+
+
+		<p>Element.firstElementChild属性返回第一个HTML元素类型的子节点，</p>
+		<P>Element.lastElementChild返回最后一个HTML元素类型的子节点。</P>
+		<ul id="ul">
+			<li>first</li>
+			<li>second</li>
+			<li>third</li>
+			<li>last</li>
+		</ul>
+		<script type="text/javascript">
+			var ul=document.getElementById('ul');
+			alert(ul.children.length)//4
+			alert(ul.childElementCount)//4
+
+			var first=ul.firstElementChild.innerHTML;
+			alert(first)
+			var last=ul.lastElementChild.innerHTML;
+			alert(last)
+
+//Element.nextElementSibling属性返回当前HTML元素节点的后一个同级HTML元素节点，如果没有则返回null
+			var second=ul.firstElementChild.nextElementSibling.innerHTML;
+			alert(second)
+//Element.previous属性返回当前HTML元素节点的前一个同级HTML元素节点，如果没有则返回null。
+			var third=ul.lastElementChild.previousElementSibling.innerHTML;
+			alert(third)
+		</script> -->
+
+		
+		
+
+
+	</body>
+</html>

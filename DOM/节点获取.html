@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<!-- // 	<div id="d" style="width:300px;height:300px;background:red" class="d1">javaScript html</div>
+// 	<div class="d1">childNodes</div><div></div>
+// 	<input type="text" name="userName">
+// 	<input type="button" name="" value="innerHTML" onclick="changeInner()">
+// 	<input type="button" name="" value="nodeValue" onclick="changeNodeValue()">
+// <body>
+// 	<script type="text/javascript">
+// 	var div=document.getElementById("d");
+// 		// alert(document)//[object HTMLDocument]
+// 		// alert(div)//返回元素[object HTMLDivElement]
+// 		// alert(div.attributes[0])//节点属性attr[object Attr]
+// 		// alert(div.childNodes[0])//节点内容[object Text]
+
+// 		//getElementById(),getElementsByTagName();getElementsByClassName;
+// 		//getElementsByName 通过表单元素的name属性获取元素节点 
+// 		var user=document.getElementsByName("userName")//不建议使用
+// 		// alert(user.length)//Nodelist
+
+
+// //attributes获取元素所有的属性节点 通过下标index访问对应节点的属性和值
+// 		var as=div.attributes//attributes获取元素所有的属性节点 通过下标index访问对应节点的属性和值
+// 		// alert(as.length);//2，属性节点ID 和style
+// 		for (var i=0;i<as.length;i++){
+// 			document.write("<br>")
+// 			document.write(as[i].nodeName+":")//属性名称
+// 			document.write(as[i].nodeValue)//属性值
+// 		}
+// //childNodes获取元素的所有子节点，通过下标index访问对应节点的属性和值
+// 		var text=div.childNodes[0];
+// 		document.write("<br>")
+// 		document.write("div的内容节点名称:"+text.nodeName)
+// 		document.write("DIV的内容节点值:"+text.nodeValue +"<br>")
+
+// //nodeName 节点名称，nodeValue 节点值，nodeType 节点类型，innerHTML元素的文本内容
+	
+// 	  function p(s){
+
+// 	  	document.write(s);
+// 	  	document.write("<br>")
+// 	  }
+// 	  p(document.nodeName) //document的节点名称
+// 	  p(d.nodeName)	//div元素节点的节点名称
+// 	  p(d.attributes[0].nodeName)//div下属性节点的节点名称
+// 	  p(d.childNodes[0].nodeName)//div下内容节点的节点名称
+
+// 	  p(document.nodeValue);// 文档的节点值null
+// 	  p(d.nodeValue);//元素的节点值null
+// 	  p(d.attributes[0].nodeValue); //属性的节点值
+// 	  p(d.childNodes[0].nodeValue)// 内容的节点值
+		
+// 	  p(document.nodeType);  //文档的节点类型，是 9
+// 	  p(d.nodeType) //元素的节点类型，是 1
+// 	  p(d.attributes[0].nodeType) //属性的节点类型，是 2
+// 	  p(d.childNodes[0].nodeType) //内容的节点类型，是 3
+
+// 	  //通过innerHTML/nodeValue更改获取内容节点的值
+// 	  function changeInner(){
+// 	  	div.innerHTML="innerHTML改变div的内容"
+// 	  }
+// 	  function changeNodeValue(){
+// 	  	div.childNodes[0].nodeValue="nodeValue内容节点修改div内容"
+// 	  }
+
+// 	  //document.getElementsByTagName()方法返回所有指定HTML标签的元素，返回值是一个类似数组
+// 	  var a=document.getElementsByTagName("input")[1]
+
+
+// 	  //生成节点的方法 ,document.createElement()元素节点;document.createElement()文本节点
+
+// 	  //document.createAttribute()生成一个新的属性对象节点
+// 	</script>  -->
+	<p>删除节点</p>
+	<div>
+		<li>removeChild()删除元素节点</li>
+		<li><a href="#">removeAttribute</a></li>
+		<li>removeChild()删除文本节点</li>
+		<li>replaceChild()替换节点</li>
+		<li>appendChild()插入节点，插入的新节点在文档最后 </li>
+		<li>insertBefore()在节点直接插入节点</li>
+	</div>
+	<input type="button" name="" value="removeChild()" onclick="reChild()">
+	<input type="button" name="" value="removeAttribute()" onclick="reAttr()">	
+	<input type="button" name="" value="removeChild().childNodes[0]" onclick="reText()">
+	<input type="button" name="" value="replaceChild()" onclick="replace()">
+	<input type="button" name="" value="appendChild()" onclick="append()">
+	<input type="button" name="" value="insertBefore()" onclick="insert()">
+	<script type="text/javascript">
+
+	function reChild(){
+		var div=document.getElementsByTagName("div")[0];
+		var	li=document.getElementsByTagName("li")[0];
+		div.removeChild(li)
+			alert(div)	
+	}	
+	function reAttr(){	
+		var a=document.getElementsByTagName("a")[0];
+		a.removeAttribute("href")
+	}
+	function reText(){
+		var li=document.getElementsByTagName("li")[2];
+		// var txt=li.childNodes[0]//获取文本
+		// li.removeChild(txt)
+		//innerHTML方式
+		li.innerHTML="";
+	}
+
+	function replace(){
+		var div=document.getElementsByTagName("div")[0];
+		var li=document.getElementsByTagName("li")[3];	
+		var a=document.createElement("a");
+		a.innerHTML="我是替换的";
+		div.replaceChild(a,li)//replaceChild(x,y),第一参数是替换节点，第二个参数是被替换节点
+	}
+	function append(){
+		var div=document.getElementsByTagName("div")[0];
+		var li=document.createElement("li");
+		var text=document.createTextNode("我市插入的");//createTextNode()创建新的文本节点
+		li.appendChild(text);
+		div.appendChild(li);
+	}
+	function insert(){
+		var div=document.getElementsByTagName("div")[0];
+		var li=document.createElement("li");
+		var txt=document.createTextNode("我在第二行插入");
+		var li1=document.getElementsByTagName("li")[2]
+		li.appendChild(txt);
+		div.insertBefore(li,li1)
+
+	}
+	</script>
+</body>
+</html>

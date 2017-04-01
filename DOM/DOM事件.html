@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- <meta http-equiv="refresh" content="5" /> -->
+	<title></title>
+	<link rel="stylesheet" href="dom-1.css" type="text/css" />
+</head>
+<body>
+<!-- 	<p> 焦点事件 </p>
+	当组件获取焦点的时候，会触发onfocus事件 <input type="text" name="" onfocus="f()" onblur="b()" placeholder="txt1"></br>
+	当组件失去焦点的时候，会触发onblur事件	<input type="text" placeholder="txt2">
+	<span id="sp"></span>
+	<script type="text/javascript">
+		function f(){
+			document.getElementById("sp").innerHTML="txt1获取焦点"
+		}
+		function b(){
+			document.getElementById("sp").innerHTML="txt1失去焦点"
+		}
+	</script>
+ -->
+ 	
+<!--  	<p> 鼠标事件 </p>
+	<input type="button" name="" value="鼠标按下和弹起" onmousedown="down()" onmouseup="up()"><span id="sp"></span>
+ 	<div style="width:200px;height:100px" id="d" onmouseover="over()" onmouseout="out()"></div>
+ 	<input type="button" value="鼠标 经过" onmousemove="move()">
+ 	<script type="text/javascript">
+ 		function down(){
+ 			document.getElementById("sp").innerHTML="当在组件上鼠标按下的时候，会触发onmousedown事件 ";
+ 		}
+ 		function up(){
+ 			document.getElementById("sp").innerHTML="当在组件上鼠标弹起的时候，会触发onmouseup事件 ";
+ 		}
+ 		// function move(){
+ 		// 	var div=document.getElementById("d");
+ 		// 	d.style.background="pink";
+ 		// 	d.innerHTML="当在组件上鼠标经过的时候，会触发onmousemove事件 "
+ 		// }
+ 		function over(){
+ 			var div=document.getElementById("d");
+ 			d.style.background="red";
+ 			d.innerHTML="当在组件上鼠标进入的时候，会触发onmouseover事件 ";
+ 		}
+ 		function out(){
+ 			var div=document.getElementById("d");
+ 			d.innerHTML="当在组件上鼠标退出的时候，会触发onmouseout事件 ";
+ 			d.style.background="pink";
+ 		}
+ 		var num=0;
+ 		function move(){
+ 			var div=document.getElementById("d");
+ 			
+ 			div.innerHTML="当在组件上鼠标经过的时候，会触发onmousemove事件；当前经过的次数："+(++num);
+ 		}
+ 	</script> -->
+
+<!--  	<p>键盘事件</p>
+ 	<input type="text" placeholder="按下keydown" id="txt1" onkeydown="down(event)" onkeyup="up()"></br>
+ 	<input type="text" placeholder="按下keypress" id="txt2" onkeypress="press(event)"></br>
+ 	<span id="sp"></span>
+ 	<script type="text/javascript">
+ 		function down(event){
+ 			var x = event.keyCode
+ 			document.getElementById("sp").innerHTML="当在组件上键盘按下的时候，会触发onkeydown事件;返回键盘按键："+x+"\n";
+ 		}
+ 		function up(){
+ 			document.getElementById("sp").innerHTML="当在组件上键盘弹起的时候，会触发onkeyup事件"
+ 		}
+ 		function press(event){
+ 			var x=event.which||event.keyCode;
+ 			document.getElementById("sp").innerHTML="当在组件上键盘弹起的时候，会触发onkeyup事件;返回键盘按键："+x;
+ 		}
+		 // onkeydown 1.可以获取所有键，除了打印键Prts 2.可以获取用户是否点击了修饰键 (ctrl,shift,alt) 3.不能判断输入的是大写还是小写
+		 // onkeypress1.只能获取字符键,2.不能获取用户是否点击了修饰键 (ctrl,shift,alt),3.可以判断输入的是大写还是小写
+		  // 不同浏览器支持的效果不同，暂且只认为他们表示按下即可
+ 	</script> -->
+
+<!--  	<p>单击事件</p>
+ 	<input type="button" value="单击和双击" onclick="click1()" ondblclick="dblclick()"><span id="sp"></span>
+
+ 	<script type="text/javascript">
+ 		function click1(){
+ 			document.getElementById("sp").innerHTML="单击鼠标了当在组件上单击的时候，会触发onclick事件"
+ 		}
+ 		function dblclick(){
+ 			document.getElementById("sp").innerHTML="双击了鼠标：当在组件上双击的时候，会触发ondblclick事件"
+ 		}
+ 	</script> -->
+
+<!--  	<p>变化事件</p>
+ 	<input type="text" onchange="txt()" id="txt">
+ 	<span id="sp"></span>
+ 	<script type="text/javascript">
+ 	function txt(){
+ 		var x=document.getElementById("txt");
+ 		x.value=x.value.toUpperCase()
+ 		document.getElementById("sp").innerHTML="当你离开输入框后，函数将被触发，将小写字母转为大写字母"
+ 	}
+ 	</script>
+ -->
+ <!-- 	<form action="" name="forms">
+ 		<select name="sel" onchange="mySelect()" size="3" multiple="true"> multiple多选为true 
+ 			<option value="1">哈哈阿</option>
+ 			<option vlaue="2">呵呵阿</option>
+ 			<option value="3">hoho啊</option>
+ 		</select>
+ 		<textarea rows="10" cols="30" style="width:100px;height:50px;resize:none" name="area">
+ 		</textarea>
+ 	</form>
+ 	<script type="text/javascript">
+ 		function mySelect(){
+ 			var forms=document.forms.sel;
+ 			var str="";
+
+ 			for (var i=0;i<forms.length;i++){
+ 				if (forms[i].selected){
+ 					str+=forms[i].text+"\n";
+ 				}
+ 			}
+ 			// alert(str)
+ 			document.forms.area.innerHTML=str;//也可用TEXT
+ 		}
+ 	</script> -->
+
+<!--  	<p> 提交事件 onsubmit 在form上的监听事件</p>
+ 	<form  action="http://www.baidu.com" onsubmit="return sub()" method="get">
+ 	账号：<input type="text" name="" id="txt"></br>
+ 	密码：<input type="password" id="pass">
+ 	<input type="button" name="" value="提交">
+ 	</form>
+ 	<script type="text/javascript">
+ 		function sub(){
+ 			var txt=document.getElementById("txt").value;
+ 			var pass=document.getElementById("pass").value;
+ 			document.write("你提交的帐号:"+txt+"\n"+"你的密码："+pass)
+ 			// alert("你提交的帐号:"+txt+"\n"+"你的密码："+pass)
+
+ 			// if (txt.lenght==0){
+ 			// 	alert("用户不能为空")
+ 			// 	return false;
+ 			// }
+ 			// return true
+ 		}
+ 	</script>
+
+ 	<p>this表示触发事件的组件，可以在调用函数的时候，作为参数传进去 
+ 	this表示触发当前事件
+ 	</p>
+ 	<input type="button" name="" onclick="singleClick(this)" value="this指向触发当前事件1">
+ 	<input type="button" name="" onclick="singleClick(this)" value="this指向触发当前事件2">
+ 	<script type="text/javascript">
+ 		function singleClick(button){
+ 			alert(button.value)
+ 		}
+ 	</script> -->
+<!--  	<P>下拉菜单-练习 </P>
+
+ 	<a href="#" onmouseover="showMenu('Weapon')">武器</a>
+ 	<a href="#" onmouseover="showMenu('Armor')">护甲</a>
+ 	<a href="#" onmouseover="showMenu('Hero')">英雄</a>
+ 	<div class="menu menuWeapon">
+ 		<a href="#">大剑</a>
+ 		<a href="#">屠龙</a>
+ 		<a href="#">一台年</a>
+ 		<a href="#">板砖</a>
+ 	</div>
+ 	<div class="menu menuArmor">
+ 		<a href="#">胸甲</a>
+ 		<a href="#">护腕</a>
+ 		<a href="#">头盔</a>
+ 		<a href="#">鞋子</a>
+ 	</div>
+ 	<div class="menu menuHero">
+ 		<a href="#">屠夫</a>
+ 		<a href="#">小鱼</a>
+ 		<a href="#">骷髅王</a>
+ 		<a href="#">佩恩</a>
+ 	</div>
+ 	<script type="text/javascript">
+ 		// var a=document.getElementsByClassName("menuWeapon");
+ 		// var b=document.getElementsByClassName("menuArmor");
+ 		// var c=document.getElementsByClassName("menuHero");
+ 		// function menuWeapon(){
+ 		// 	a[0].style.display="block";
+ 		// 	b[0].style.display="none";
+ 		// 	c[0].style.display="none";
+ 		// }
+ 		// function menuArmor(){
+ 		// 	a[0].style.display="none";
+ 		// 	b[0].style.display="block";
+ 		// 	c[0].style.display="none";
+ 		// }
+ 		// function menuHero(){
+ 		// 	c[0].style.display="block";
+ 		// 	a[0].style.display="none";
+ 		// 	b[0].style.display="none";
+ 		// }
+//简洁方式
+	function showMenu(type){
+		var divs=document.getElementsByClassName("menu");
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display="none";
+		}
+		var className="menu"+type;
+		var divsMenu=document.getElementsByClassName(className)[0];
+		divsMenu.style.display="block";
+	}
+ 	</script> -->
+
+ <!-- 	<input type="text" name="" onchange="nublur()">
+ 	 <input type="button" name="" onclick="nublur()">
+ 	<span id="sp"></span>
+ 	<script type="text/javascript">
+ 	function nublur(){
+ 		var inp=document.getElementsByTagName("input")[0];
+		 var sp=document.getElementById("sp");
+ 		// 正则的方法
+ 		// var reg=/[a-z]/;
+ 		// if (reg.exec(inp)){
+ 		// 	sp.innerHTML="可用"
+ 		// }else{
+ 		// 	sp.innerHTML="不可用不"
+ 		// }
+ 		// 字符串的方法
+ 	
+ 		if (0!=inp.value.length){
+ 			var firstChar=inp.value.charAt(0)//定义第一个字符串的位置
+ 			if (firstChar=="a"||firstChar=="A"){
+ 				sp.innerHTML="不可用";
+ 			}else{
+ 				sp.innerHTML="可用";
+ 			}
+ 		}
+	}
+
+ 	</script>
+ -->
+
+
+ 
+ </body>
+
+</html>
