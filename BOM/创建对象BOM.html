@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="button" value="打开新窗口" onclick="openNewWindow()">
+	<script>
+		function hero(name){
+			this.name=name;
+			this.kill=function (){
+				return this.name+"正在杀敌"
+			}
+		}
+
+		hero.prototype.keng=function (){
+			return this.name+"正在坑队友"
+		}
+
+		var gl=new hero("gailun");
+		var mt=new hero("moti");
+		// alert(gl.name)
+		// alert(mt.name)
+		// alert(gl.kill())
+		// alert(mt.keng())
+
+
+//BOM--------
+		//alert(window.innerWidth+"\n"+window.innerHeight)//获取文档内容显示区域的宽高，随浏览器的大小变化
+		//alert(window.outerWidth+"\n"+window.outerHeight)//浏览器整体宽高，随浏览器的大小变化 
+
+		//打开新窗口 open()
+		function openNewWindow(){
+			return open('http://www.baidu.com','height=120;width=100,top=234,left=123',true)
+		};
+		//Navigator 浏览器对象，提供浏览器相关信息 
+
+		document.write("<p>产品名称："+navigator.appName+"</p>")
+		document.write("<p>版本号："+navigator.appVersion+"</p>")
+		document.write('<p>浏览器内部代码：'+navigator.appCodeName+'</p>')
+		document.write('<p>操作系统:'+navigator.platform+'</p>')
+		document.write("cookies是否启用："+navigator.cookieEnabled+'</p>')
+		document.write("用户代理报头:"+navigator.userAgent+'</p>')
+
+	//screen
+	 	document.write("<p>"+screen.width+"*"+screen.height+"</p>")
+	 	document.write("<p>"+screen.availWidth+"*"+screen.availHeight+"</p>")
+	</script>
+	<input type="button" onclick="goBack()" value="返回">
+	<a href="复利计算器.html">打开</a>
+	<p>当前时间：<span id="sp"></span></p>
+	<button onclick="refresh()">获取时间</button>
+	<button onclick="jump()">跳转</button>
+	<button onclick="a()">警示框</button><br>
+	<button onclick="c()">确认框</button><br>
+	<button onclick="p()">输入框</button>
+	<script type="text/javascript">
+		// function goBack(){
+		// 	history.back(-2);
+		// }
+
+		
+		 	var sp=document.getElementById("sp")
+		 	var today=new Date;
+		 	var year=today.getFullYear();
+		 	var month=today.getMonth();
+		 	var day=today.getDate();
+		 	var minute=today.getMinutes();
+		 	var second=today.getSeconds();
+		 	var Millisecond=today.getMilliseconds();
+		 	sp.innerHTML=year+":"+month+":"+day+":"+minute+":"+second+":"+Millisecond;
+		 function refresh(){
+		 	location.reload();
+		 }
+
+		 function jump(){
+		 	// location="/"跳转方法1
+		 	location.assign("/")//方法2
+		 }
+
+		//locatin的其他属性
+			// function p(s){
+				
+			// 		document.write(s);
+			// 		document.write("<br>");
+			
+			// }
+			// p("协议："+location.protocol);
+			// p("主机名:"+location.hostname);
+			// p("端口号："+location.port);
+			// p("主机加端口号："+location.host);
+			// p("访问的路径:"+location.pathname);
+			// p("锚点:"+location.hash)
+			// p("参数列表+" +location.search)
+
+	//弹出框
+		function a(){
+			alert("这是警示框")
+		}
+		function c(){
+		var	boo=confirm("是否确认");
+			if (boo){
+				alert("sb");
+			}else{
+				alert("big sb")
+			}
+		};
+		function p(){
+			var boo=prompt("请输入内容")
+
+				if(boo==""){
+					alert("必须输入名字才能succ")
+				}else{
+					alert("fail，")
+				}
+		}
+
+		var o=Object.create({},{
+			p1:{
+				value:123,
+				enumberable:true
+			},
+			p2:{
+				value:'sas',
+				enumberable:true
+			}
+		}); 
+	
+
+
+		function a(){
+			var b=dcouendt.getElementBYId
+		}
+	</script>
+
+		
+</body>
+</html>

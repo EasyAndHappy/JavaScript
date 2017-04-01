@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>window对象有innerWidth和innerHeight属性，可以获取浏览器窗口的内部宽度和高度,用于显示网页的净宽高</p>
+	<script type="text/javascript">
+		document.write("window widgth:"+window.innerWidth+"window Height:"+window.innerHeight)
+	</script>
+	<P>navigator对象表示浏览器的信息:</P>
+	<li>navigator.appName:浏览器名称</li>
+	<li>navigator.appVersion:浏览器版本</li>
+	<li>navigator.language:浏览器设置的语言</li>
+	<li>navigator.platform:系统操作类型</li>
+	<li>navigator.userAgent:浏览器设定的User-Agent字符串。</li>
+	<script type="text/javascript">
+		document.write('appName='+navigator.appName+'<br>'+
+					    'appVersion='+navigator.appVersion+'<br>'+
+					    'language='+navigator.platform+'<br>'+
+					    'userAgent='+navigator.userAgent
+			)
+	</script>
+	<p>screen对象表示屏幕的信息：</p>
+	<li>screen.width:屏幕宽度，以像素为单位</li>
+	<li>screen.height:屏幕高度，以像素为单位</li>
+	<li>screen.colorDepth:返回颜色位数，如8、16、24</li>
+	<script type="text/javascript">
+		document.write('width:'+window.screen.width+'<br>'+
+						'height:'+window.screen.height+'<br>'+
+						'colorDepth:'+window.screen.colorDepth+'<br>'
+
+			)
+	</script>
+	<p>location对象表示当前页面的URL信息，location.href获取URL各个部分的值</p>
+
+	<li>location.assign()加载一个新页面</li>
+	<li>location.reload()重新加载当前页面</li>
+	<script type="text/javascript">
+			// alert(location.href)
+			document.write(location.protocol+'<br>'+
+							location.host+'<br>'+
+							location.port+'<br>'+
+							location.pathName+'<br>'+
+							location.search+'<br>'+
+							location.hash
+				)
+			if (confirm("重新加载当前页面"+location.href+"?")){
+				// location.reload();
+			
+			}else{
+				location.assign("http://www.baidu.com")
+			}
+	</script>
+	<p>history对象保存了浏览器的历史记录,back()或forward ()，相当于用户点击了浏览器的“后退”或“前进”按钮。</p>
+
+</body>
+</html>
