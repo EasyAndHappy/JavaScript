@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style>
+		.box {text-align: center;  height: 30px; line-height: 25px; margin: 5px; background: black; color: white; display: inline-block; padding: 2px; font-size: 20px; cursor: pointer;}
+	</style>
+		
+</head>
+<body>
+	<textarea cols="20" rows="10" id="inValue"></textarea>
+	<input type="button" id="left-in" value="左进">
+	<input type="button" id="right-in" value="右进">
+	<input type="button" id="left-out" value="左出">
+	<input type="button" id="right-out" value="右出">
+	<input type="text" id="txt">
+	<input type="button" id="search" value="检索">
+	<div id="queue">
+		
+	</div>
+
+	<script type="text/javascript">
+		function createNode(content) {
+			var newElement = document.createElement("span");
+			var newText = document.createTextNode(content)
+			newElement.appendChild(newText);
+			newElement.setAttribute("class", "box")  
+			return newElement;
+		};
+
+		function leftIn() {
+			var oQueue = document.getElementById("queue");
+			var inputValue = document.getElementById("inValue").value;
+			var inputValueArr = inputValue.split(/\s|,|，|、|\r/);
+
+			if (inputValueArr.length > 0) {
+				for (var i = 0; i < inputValueArr.length; i++) {
+					if (inputValueArr[i] !== "") {
+						var newItem = createNode(inputValueArr[i]);
+						// oQueue.insertBefore(newNode, oQueue.childNodes[0]);
+						oQueue.insertBefore(newItem,queue.firstElementChild);			
+					}
+				}
+			}
+
+		};
+
+		function rightIn() {
+			var oQueue = document.getElementById("queue");
+			var inputValue = document.getElementById("inValue").value;
+			var inputValueArr = inputValue.split(/\s|,|，|、|\r/);
+			
+			if (inputValueArr.length > 0) {
+				
+				for (var i = 0; i < inputValueArr.length; i++) {
+
+					if (inputValueArr[i] !== "") {
+						var newItem = createNode(inputValueArr[i]);
+						oQueue.appendChild(newItem)
+					}
+				}
+			}
+		};
+
+		function leftOut() {
+			var oQueue = document.getElementById("queue");
+			if (oQueue.children.length > 0) {
+				// oQueue.removeChild(oQueue.childNodes[1])
+				oQueue.removeChild(oQueue.firstElementChild)
+			}	
+		};
+
+		function rightOut() {
+			var oQueue = document.getElementById("queue");
+			var len = oQueue.children.length;
+			if (oQueue.children.length > 0) {
+				// oQueue.removeChild(oQueue.children[len - 1])
+				oQueue.removeChild(oQueue.lastElementChild)
+			};
+		};
+
+		function searchValue() {
+
+			var oQueue = document.getElementById("queue");
+			var oTxt = document.getElementById("txt").value;
+			var reg = eval("/" + oTxt + "/g"); //返回正则表达式
+		
+			for (var i = 0; i < oQueue.children.length; i++) {
+			
+				var str = oQueue.children[i].innerHTML.toString();
+				
+				var newStr = str.replace(reg, "<span style='color:red;'>" + oTxt + "</span>");
+			
+				oQueue.children[i].innerHTML = newStr;
+			}
+
+		};
+
+		function init() {
+			document.getElementById("left-in").onclick= leftIn;
+			document.getElementById("right-in").onclick= rightIn;
+			document.getElementById("left-out").onclick= leftOut;
+			document.getElementById("right-out").onclick= rightOut;
+			document.getElementById("search").onclick = searchValue;
+			var oQueue = document.getElementById("queue");
+			oQueue.onclick = function(ev) {
+				var oEvent = ev || event;
+				var target = oEvent.target;
+				oQueue.removeChild(target);
+			}
+
+		};
+		init();
+	</script>
+</body>
+</html>

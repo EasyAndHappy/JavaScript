@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#ul {margin: 0; padding: 0;} 
+		#ul li {
+			width: 30px; 
+			height: 30px; 
+			float: left; 
+			background: red;
+			cursor: pointer;
+			color: white;
+			margin: 10px;
+			list-style: none;
+			text-align: center;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<input type="number" name="" id="txt">
+	<input type="button" value="左入" id="left-in">
+	<input type="button" value="右人" id="right-in">
+	<input type="button" value="左出" id="left-out">
+	<input type="button" value="右出" id="right-out">
+	<ul id="ul">
+		<li>12</li>
+		<li>32</li>
+		<li>43</li>
+		<li>1</li>
+	</ul>
+	<script type="text/javascript">
+
+
+	var oTxt = document.getElementById("txt")
+		function leftIn(obj) {
+
+
+			if (oTxt.value === "") {
+				alert("输入数字")
+			}else {
+				var oLi = document.createElement("li");
+				oLi.innerHTML = oTxt.value;
+				obj.insertBefore(oLi, obj.firstElementChild);//===obj.children[0];
+				oTxt.value = "";
+			}
+		};
+
+		function rightIn(obj) {
+
+			if (oTxt.value === "") {
+				alert("数字数字");
+			}else {
+
+				var oLi = document.createElement("li");
+				oLi.innerHTML = oTxt.value;
+				obj.appendChild(oLi);
+				oTxt.value = "";
+			}
+		};
+
+		function leftOut(obj) {
+			var oLi = obj.children[0];
+			obj.removeChild(obj.firstElementChild);
+			alert(oLi.innerHTML);
+		};
+
+		function rightOut(obj) {
+			var oLi = obj.children[obj.children.length - 1];
+			obj.removeChild(obj.lastElementChild);
+			alert(oLi.innerHTML)
+		};
+		
+		function init() {
+
+			var oUl = document.getElementById("ul");
+			document.getElementById("left-in").onclick = function() {
+				leftIn(oUl);
+			};
+			document.getElementById("right-in").onclick = function() {
+				rightIn(oUl);
+			};
+			document.getElementById("left-out").onclick = function() {
+				leftOut(oUl);
+			};
+			document.getElementById("right-out").onclick =function() {
+				rightOut(oUl);
+			};
+
+			//删除目标点，
+			oUl.onclick = function(ev) {
+
+				var oEvent = ev || event;
+				var x = oEvent.target;
+				oUl.removeChild(x);
+			}
+		};
+		init()
+	</script>
+</body>
+</html>
