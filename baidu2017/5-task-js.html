@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style>
+		#ul {margin: 0px auto; padding: 0;}
+		#ul li {width:20px; height:20px; float: left; margin: 5px; background: red; list-style: none; line-height: 20px; text-align: center; color: white; cursor: pointer;}
+		#ul2 li {width:20px; height:20px; float: left; margin: 0px 5px; background: red; list-style: none; line-height: 20px; text-align: center; color: white; cursor: pointer;}
+	</style>
+</head>
+<body>
+	<input type="number" id="txt">
+	<input type="button" name="" id="left-in" value="左入">
+	<input type="button" name="" id="right-in" value="右入">
+	<input type="button" name="" id="left-out" value="左出">
+	<input type="button" name="" id="right-out" value="右出">
+	<input type="button" name="" id="sort" value="排序">
+	<ul id="ul">
+
+	</ul>
+	<ul id="ul2"></ul>
+	<script type="text/javascript">
+/*		var oLeftIn = document.getElementById("left-in");
+		var oRightIn = document.getElementById("right-in");
+		var oLeftOut = document.getElementById("left-out");
+		var oRightOut = document.getElementById("right-out");
+
+		var oTxt = document.getElementById("txt");
+		var oUl = document.getElementById("ul");
+		
+		var i;
+ 		//左插入
+		oLeftIn.onclick = function() {
+
+			if ((oTxt.value === "") && (oTxt.value >= 10 || oTxt.value <= 100)) {
+				alert("需要数字")
+			}else {
+				var oLi = document.createElement("li");
+				oLi.innerHTML = oTxt.value;
+				oUl.insertBefore(oLi, oUl.firstChild); //firstChild返回首个元素
+				oTxt.value = "";
+			}
+		};
+
+		// 右插入
+		oRightIn.onclick = function() {
+			if (oTxt.value === "") {
+				alert("需要数字")
+			}else {
+				var oLi = document.createElement("li");
+				oLi.innerHTML = oTxt.value;
+				oUl.appendChild(oLi);
+				oTxt.value = "";
+			}
+		};
+
+		//左删除
+		oLeftOut.onclick = function() {
+			var oLi = oUl.getElementsByTagName("li")[0];
+			// oUl.removeChild(oUl.getElementsByTagName("li")[0]);
+			oUl.removeChild(oUl.firstElementChild)
+			alert(oLi.innerHTML);
+		};
+
+		//右删除
+		oRightOut.onclick = function() {
+			var oLi = oUl.children[oUl.children.length - 1];//oLi的长度是变化的
+		
+			oUl.removeChild(oUl.lastElementChild); //lastElementChild 返回最后一个元素节点
+			alert(oLi.innerHTML);
+		};
+
+		 
+		 oUl.onclick = function(ev) {
+		 	var oEvent = ev || event;
+
+		 	var x = oEvent.target;
+		 	oUl.removeChild(x);
+		 }*/
+
+		//后记，注意
+		// element.chidNodes 返回一个nodelist集合，类似数组，需要用Array.form()转换 ，
+		// nodeType 属性返回以数字值返回指定节点的节点类型
+		// element.children 返回所有子元素，第一层， 
+		// createTextNode 创建文本节点
+
+		function txtValue(num) {
+			if (num === "") {
+				alert("不能为空")
+				return false;
+			}else if (num <10 || num > 100) {
+				alert("只能输入10 - 100的数字")
+				return false;
+			}
+			return true;
+		};
+
+
+		function leftIn(obj) {
+			var oTxt = document.getElementById("txt");
+				if(txtValue(oTxt.value)) {
+					var oLi = document.createElement("li");
+					oLi.innerHTML = oTxt.value;
+					oLi.style.height = oTxt.value + "px";
+
+					if (obj.children.length >= 60) {
+						alert("最多插入60个元素")
+					}else {
+						obj.insertBefore(oLi, obj.firstElementChild); //children[0]也可以
+						oTxt.value = " ";
+					}
+				}
+		};
+
+		function rightIn(obj) {
+			var oTxt = document.getElementById("txt");
+			 if (txtValue(oTxt.value)) {
+			 	var oLi = document.createElement("li");
+				oLi.innerHTML = oTxt.value;
+				oLi.style.height = oTxt.value + "px";
+				if(obj.children.length >= 60) {
+					alert("最多插入60个元素")
+				}else {
+					obj.appendChild(oLi);
+					oTxt.value = "";					
+				}
+			 }
+		};
+
+		function leftOut(obj) {
+			var oLi = obj.children[0];
+			obj.removeChild(oLi); //element.firstElementChild
+			alert(oLi.innerHTML);
+		};
+
+		function rightOut(obj) {
+			var oLi = obj.children[obj.children.length - 1]
+			obj.removeChild(obj.lastElementChild);
+			alert(oLi.innerHTML)
+		};
+
+		function bubbleSort(obj) {
+			var oLi = obj.children;
+			// if (oLi.length <= 1) {
+			// 	return oLi;
+			// }
+
+			// for (var i = 0; i < oLi.length; i++) {
+			// 	for (j = i -1; j >= 0; j--) {
+			// 		if (oLi[j + 1].style.height < oLi[j].style.height) {
+			// 			var height = oLi[j + 1].style.height;
+			// 			oLi[j + 1].style.height = oLi[j].style.height;
+			// 			oLi[j].style.height = height;
+			// 		}
+			// 	}
+			// }
+			var arr = [];
+			for (var i = 0; i < oLi.length; i++) {
+				arr.push(oLi[i]);
+			}
+			var b = arr.sort(function(li1, li2) {
+				return parseInt(li1.style.height) - parseInt(li2.style.height);
+			});
+			obj.style.display = "none";
+			var oUl2 = document.getElementById("ul2")
+			for (var i = 0; i < b.length; i++) {
+				oUl2.appendChild(b[i]);
+			}
+		};
+
+		function init() {
+			var oUl = document.getElementById("ul")
+			document.getElementById("left-in").onclick = function() {
+				leftIn(oUl);
+			};
+			document.getElementById("right-in").onclick = function() {
+				rightIn(oUl);
+			};
+			document.getElementById("left-out").onclick = function() {
+				leftOut(oUl);
+			};
+			document.getElementById("right-out").onclick = function() {
+				rightOut(oUl);
+			};
+			document.getElementById("sort").onclick = function() {
+				bubbleSort(oUl)
+			};
+
+			//点击删除
+			oUl.onclick = function(ev) {
+
+				var oEvent= ev || event;
+				//目标事件，target
+				var x = oEvent.target
+				oUl.removeChild(x);
+				//获取目标元素名称
+				var name = x.tagName;
+
+				// if (name === "LI") {
+				// 	oUl.removeChild(x);
+				// }  直接oUl.removeChild(x)也可行
+			}
+		};
+		init();
+	</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#box {width: 80%; height: 600px; margin:5px auto; background: #ccc; border-radius: 5px;}
+
+		#box #area {resize: none; margin: 5px; margin: 0 auto; display: block; padding: 10px;}
+		#box #buttonBox {width: 300px; margin: 0px auto; /*border: 1px solid red*/; text-align: center; padding: 10px;}
+		#box #buttonBox input {width: 50px; height: 50px; cursor: pointer;}
+		#box #buttonBox #txt {width: 200px; margin: 5px;  font-size: 20px; padding: 0 2px; cursor: text;} 
+		#box #queue {border: 1px dashed red; width: 600px; height: 250px; margin: 0 auto; padding: 10px;}
+		span {text-align: center;  height: 30px; line-height: 25px; margin: 0px; background: black; color: white; display: inline-block; padding: 0 2px; ; cursor: pointer;}
+	</style>
+</head>
+<body>
+<div id="box">
+	<textarea id="area" rows="10" cols="80"></textarea>
+	<div id="buttonBox">
+		<input type="button" value="左进" id="left-in">
+		<input type="button" value="右进" id="right-in">
+		<input type="button" value="左出" id="left-out">
+		<input type="button" value="右出" id="right-out">
+		<input type="text" id="txt">
+		<input type="button" value="检索" id="search">
+	</div>
+	<div id="queue">
+	
+	</div>
+</div>
+	<script type="text/javascript">
+
+	function createNode(content) {
+		var newItem = document.createElement("span");
+		var textNode = document.createTextNode(content)
+		newItem.appendChild(textNode);
+		 //添加属性
+		// newItem.setAttribute("class", "box");
+		return newItem
+	};
+
+	function leftIn(obj) {
+		var inputValue = document.getElementById("area").value;
+
+		var valueArr = inputValue.split(/\s|,|，|、|\r/);
+		var len = valueArr.length;
+		if (len > 0) {
+			for (var i = 0; i < len; i++) {
+				if (valueArr[i] !== "") {
+					var newNode = createNode(valueArr[i]);
+					obj.insertBefore(newNode, obj.childNodes[0]);
+				}
+			}
+		}
+	};
+
+
+	function rightIn(obj) {
+		var inputValue = document.getElementById("area").value;  //对于表单控件需要用value取值，innerHTML不适用
+
+		var valueArr = inputValue.split(/\s|,|，|、|\r/);
+		if (valueArr.length > 0) {
+			for (var i = 0; i < valueArr.length; i++) {
+				if (valueArr[i] !== "") {
+					var newNode = createNode(valueArr[i]);
+					obj.appendChild(newNode)
+				}
+			}
+		}
+	};
+
+	function leftOut(obj) {
+		var len = obj.children;
+		// obj.removeChild(obj.childNodes[0])
+		obj.removeChild(obj.firstElementChild);
+	};
+
+	function rightOut(obj) {
+		var len = obj.children;
+		obj.removeChild(obj.childNodes[len]);
+	};
+
+	function searchValue(obj) {
+		var len = obj.children.length;
+		var oTxt = document.getElementById("txt").value
+		var reg = eval("/"+ oTxt +"/g");
+		alert(len)
+		for (var i = 0; i < len; i++) {
+			var str = obj.children[i].innerHTML.toString();
+		
+			var newStr = str.replace(reg, "<span style='color:red;'>" + oTxt + "</span>")
+			obj.children[i].innerHTML = newStr;
+		}
+
+	};
+
+	function init() {
+
+		var oQueue = document.getElementById("queue");
+		var inputValue = document.getElementById("area").value;
+
+		document.getElementById("left-in").onclick = function() {
+			leftIn(oQueue); 
+		};
+		document.getElementById("right-in").onclick = function() {
+			rightIn(oQueue);
+		};
+		document.getElementById("left-out").onclick = function() {
+			leftOut(oQueue);
+		};
+		document.getElementById("right-out").onclick = function() {
+			rightOut(oQueue);
+		};
+
+		document.getElementById("search").onclick = function() {
+			searchValue(oQueue);
+		};
+		oQueue.onclick = function(ev) {
+			var oEvent = ev || event;
+			var target = oEvent.target;
+			oQueue.removeChild(target)
+		}
+	};
+	init();
+	</script>
+</body>
+</html>
