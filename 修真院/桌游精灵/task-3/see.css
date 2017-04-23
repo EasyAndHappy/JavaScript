@@ -1,0 +1,142 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	letter-spacing: 2px;
+}
+
+header, main, footer{
+	width: 640px;
+	margin: 0 auto;
+	background: #29bde0;
+	position: relative;
+
+}
+header {
+	height: 130px;
+}
+#back {
+	width: 34px;
+	height: 45px;
+	background: #29bde0 url(../images/set_2.png) no-repeat;
+	display: inline;
+	position: absolute;
+	left: 20px;
+	top: 80px;
+	cursor: pointer;
+}
+#colse {
+	background: #29bde0 url(../images/vote_06.png) no-repeat;
+	width: 47px;
+	height: 40px;
+	display: inline;
+	position: absolute;
+	right: 20px;
+	top: 80px;
+	cursor: pointer;
+}
+header p {
+	height: 32px;
+	color: white;
+	font-size: 26px;
+	width: 120px;
+	margin: 0 auto;
+	/*padding-bottom: 10px;*/
+	padding-top: 80px;
+	text-align: center;
+}
+
+main {
+	margin-top: 2px;
+	padding: 80px 90px 110px;
+	width: 460px;
+	position:relative;
+}
+
+main #main_show {
+	background: white;
+	padding: 5px;
+}
+
+main #main_show #show_cover {
+	height: 650px;
+	background: #ffedc5;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+}
+main #main_show #show_cover img {
+	position: relative;
+	top: 171px;
+}
+
+/* 数字 */
+
+main #main_show #player_num {
+	width: 75px;
+	height: 75px;
+	border: 3px solid #ffedc5;
+	border-radius: 50%;
+	position: absolute;
+	top: 50px;
+	left: 270px;
+	background: white;
+	z-index: 2;
+	text-align: center;
+	/*vertical-align: middle;*/
+	font-size: 30px;
+	line-height: 75px;
+	font-weight: bold;
+	color: #fb658b;
+}
+/*隐藏的角色图片*/
+main #show_open {
+	background: #ffedc5;
+	text-align: center;
+	height: 443px;
+	position: relative;
+	display: none;
+}
+
+main #show_open img {
+	position: relative;
+	top: 80px;
+}
+
+main #show_open p {
+	position: relative;
+	top: 110px;
+	font-size: 37px;
+	color: #29bde0;
+	line-height: 37px;
+}
+
+/*说明部分隐藏*/
+main #main_show #explain {
+	background: #ffedc5;
+	margin-top: 2px;
+	text-align: center;
+	font-size: 26px;
+	line-height: 30px;
+	padding: 30px;
+	color: #fca000;
+	display: none;
+}
+
+
+footer {
+	padding-bottom: 60px;
+}
+footer p{
+	background: orange;
+	margin: 0px 75px 0 75px;
+	font-size: 37px;
+	color: white;
+	line-height: 37px;
+	text-align: center;
+	padding:25px 0; 
+	cursor: pointer;
+}
+footer #hide_identity {
+	display: none;
+}
